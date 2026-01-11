@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 type Service = {
     title: string;
     desc: string;
     gradient: string;
+    link: string;
 };
 
 const services: Service[] = [
@@ -13,20 +15,33 @@ const services: Service[] = [
         title: "Sound Design",
         desc: "Designing immersive soundscapes, background scores, and audio experiences that elevate digital products, games, and videos.",
         gradient: "from-cyan-400 via-sky-500 to-blue-600",
+        link: "https://therbsound.vercel.app",
     },
     {
         title: "Web Design",
         desc: "Crafting modern, responsive, and high-performance websites with clean UI, smooth animations, and scalable architecture.",
         gradient: "from-purple-400 via-pink-500 to-red-500",
+        link: "/Projects",
     },
     {
         title: "Graphic Design",
         desc: "Creating visually striking graphics, branding assets, and digital visuals that communicate ideas clearly and creatively.",
         gradient: "from-emerald-400 via-lime-400 to-yellow-400",
+        link: "/graphic-designs",
     },
 ];
 
 const CreativeServices: React.FC = () => {
+    const router = useRouter();
+
+    const handleNavigate = (link: string) => {
+        if (link.startsWith("http")) {
+            window.open(link, "_blank");
+        } else {
+            router.push(link);
+        }
+    };
+
     return (
         <section className="py-24 px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto">
@@ -58,9 +73,13 @@ const CreativeServices: React.FC = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.15 }}
                             whileHover={{ y: -10 }}
-                            className="min-w-75 md:min-w-85 rounded-2xl
-              bg-white/5 backdrop-blur-xl border border-white/10
-              p-6 relative group"
+                            onClick={() => handleNavigate(service.link)}
+                            className="
+                min-w-75 md:min-w-85 rounded-2xl
+                bg-white/5 backdrop-blur-xl
+                border border-white/10
+                p-6 relative group cursor-pointer
+              "
                         >
                             {/* GRADIENT GLOW */}
                             <div
@@ -83,7 +102,7 @@ const CreativeServices: React.FC = () => {
 
                                 <motion.span
                                     whileHover={{ x: 6 }}
-                                    className="inline-block text-sm text-white/50 cursor-pointer"
+                                    className="inline-block text-sm text-cyan-400"
                                 >
                                     Explore →
                                 </motion.span>

@@ -2,13 +2,15 @@ import { motion } from "framer-motion";
 
 interface NavItemProps {
     text: string;
+    onClick?: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ text }) => {
+const NavItem: React.FC<NavItemProps> = ({ text, onClick }) => {
     return (
-        <motion.a
-            href="#"
-            className="relative text-sm tracking-wide text-white/80 hover:text-white"
+        <motion.button
+            type="button"
+            onClick={onClick}
+            className="relative text-sm tracking-wide text-white/80 hover:text-white bg-transparent border-none cursor-pointer"
             whileHover="hover"
         >
             {text}
@@ -21,7 +23,7 @@ const NavItem: React.FC<NavItemProps> = ({ text }) => {
                 transition={{ duration: 0.3 }}
                 className="absolute left-0 -bottom-1 h-0.5 bg-cyan-400"
             />
-        </motion.a>
+        </motion.button>
     );
 };
 

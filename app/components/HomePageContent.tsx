@@ -8,7 +8,7 @@ const gradientText =
 
 const HomePageContent: React.FC = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-6 py-36 relative overflow-hidden">
 
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 -z-10">
@@ -83,15 +83,21 @@ const HomePageContent: React.FC = () => {
 
             {/* SECONDARY */}
             <motion.button
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               className="px-7 py-3 rounded-full font-semibold
-              border border-white/20 text-white
-              hover:border-purple-400 hover:text-purple-300
-              transition"
+  border border-white/20 text-white
+  hover:border-purple-400 hover:text-purple-300
+  transition"
             >
               Contact Me
             </motion.button>
+
           </motion.div>
         </div>
 
