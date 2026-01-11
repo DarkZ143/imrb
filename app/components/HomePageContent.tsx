@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import React from "react";
+import { useRouter } from "next/navigation";
 const gradientText =
   "bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent";
 
 const HomePageContent: React.FC = () => {
+  const router = useRouter();
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-36 relative overflow-hidden">
 
@@ -74,6 +76,7 @@ const HomePageContent: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
+              onClick={()=>router.push("/Projects")}
               className="px-7 py-3 rounded-full font-semibold text-black
               bg-linear-to-r from-cyan-400 to-purple-500
               shadow-lg shadow-cyan-500/30"
