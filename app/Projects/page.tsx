@@ -19,7 +19,7 @@ const projects = [
             "An e-commerce platform for modern furniture with a sleek design, smooth animations, and seamless user experience.",
         tech: "Next.js • Tailwind • Stripe",
         action: "visit",
-        link: "https://modulae.netlify.app",
+        link: "https://modulae.in",
         icon: Cpu,
     },
     {

@@ -61,9 +61,34 @@ const Contact: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="space-y-6"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold">
-                        Let’s <span className="text-cyan-400">Connect</span>
-                    </h2>
+                    <motion.h2
+                        className="text-4xl md:text-5xl font-bold text-left"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        Let’s{" "}
+                        <motion.span
+                            className="font-bold"
+                            animate={{
+                                color: [
+                                    "#22d3ee", // cyan
+                                    "#6366f1", // indigo
+                                    "#8b5cf6", // violet
+                                    "#ec4899", // pink
+                                    "#22d3ee",
+                                ],
+                            }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "linear",
+                            }}
+                        >
+                            Connect
+                        </motion.span>
+                    </motion.h2>
+
 
                     <p className="text-white/65 leading-relaxed max-w-md">
                         Have an idea, project, or collaboration in mind?

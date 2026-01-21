@@ -5,11 +5,12 @@ import Image from "next/image";
 import Resume from "../rbresume.png";
 import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
+import Contact from "../components/Contact";
 
 
 const ResumePage = () => {
     return (
-        <div className="bg-black min-h-screen text-white">
+        <div className="bg-gray-900 min-h-screen text-white">
             <section className="relative py-40 px-4 overflow-hidden">
 
                 {/* BACKGROUND GLOWS (reduced) */}
@@ -25,10 +26,108 @@ const ResumePage = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-10"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-3">
-                        <FileText className="text-cyan-400" size={26} />
-                        My <span className="text-cyan-400">Resume</span>
-                    </h2>
+                    <div className="text-center mb-10">
+                        <motion.h2
+                            className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-3"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <FileText className="text-cyan-400" size={26} />
+                            My{" "}
+                            <motion.span
+                                className="font-bold"
+                                animate={{
+                                    color: [
+                                        "#22d3ee", // cyan
+                                        "#6366f1", // indigo
+                                        "#8b5cf6", // violet
+                                        "#ec4899", // pink
+                                        "#22d3ee",
+                                    ],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                }}
+                            >
+                                Resume
+                            </motion.span>
+                        </motion.h2>
+
+
+                        {/* TWO-LAYER SINE WAVE UNDERLINE */}
+                        <div className="relative mt-3 flex justify-center">
+                            <svg
+                                width="220"
+                                height="24"
+                                viewBox="0 0 220 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <defs>
+                                    <linearGradient id="resumeWave1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#22d3ee" />
+                                        <stop offset="50%" stopColor="#6366f1" />
+                                        <stop offset="100%" stopColor="#ec4899" />
+                                    </linearGradient>
+
+                                    <linearGradient id="resumeWave2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#67e8f9" />
+                                        <stop offset="50%" stopColor="#a78bfa" />
+                                        <stop offset="100%" stopColor="#f472b6" />
+                                    </linearGradient>
+                                </defs>
+
+                                {/* BACK WAVE */}
+                                <motion.path
+                                    d="M0 12 
+                   C 22 2, 44 22, 66 12
+                   S 110 2, 132 12
+                   S 176 22, 198 12
+                   S 220 2, 220 12"
+                                    stroke="url(#resumeWave2)"
+                                    strokeWidth="4"
+                                    strokeLinecap="round"
+                                    fill="transparent"
+                                    opacity="0.35"
+                                    animate={{
+                                        strokeDasharray: ["0 360", "360 0"],
+                                        strokeDashoffset: [0, -360],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: "linear",
+                                    }}
+                                />
+
+                                {/* FRONT WAVE */}
+                                <motion.path
+                                    d="M0 12 
+                   C 18 6, 36 18, 54 12
+                   S 90 6, 108 12
+                   S 144 18, 162 12
+                   S 198 6, 220 12"
+                                    stroke="url(#resumeWave1)"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    fill="transparent"
+                                    animate={{
+                                        strokeDasharray: ["0 280", "280 0"],
+                                        strokeDashoffset: [0, -280],
+                                    }}
+                                    transition={{
+                                        duration: 1.8,
+                                        repeat: Infinity,
+                                        ease: "linear",
+                                    }}
+                                />
+                            </svg>
+                        </div>
+                    </div>
+
 
                     <p className="mt-3 text-white/60 max-w-md mx-auto text-sm">
                         A concise overview of my skills, experience, and creative journey.
@@ -68,7 +167,7 @@ const ResumePage = () => {
                     <div className="mt-6 flex justify-center">
                         <motion.a
                             href="/rbresume.pdf"
-                            download 
+                            download
                             whileHover={{ scale: 1.06 }}
                             whileTap={{ scale: 0.95 }}
                             className="
@@ -87,6 +186,7 @@ const ResumePage = () => {
 
                 </motion.div>
             </section>
+            <Contact />
         </div>
     );
 };

@@ -12,22 +12,22 @@ type Service = {
 
 const services: Service[] = [
     {
-        title: "Sound Design",
-        desc: "Designing immersive soundscapes, background scores, and audio experiences that elevate digital products, games, and videos.",
+        title: "Front End Development",
+        desc: "Building fast, responsive, and visually engaging user interfaces using modern frameworks, animations, and performance-focused architecture.",
         gradient: "from-cyan-400 via-sky-500 to-blue-600",
-        link: "https://therbsound.vercel.app",
+        link: "/Services",
     },
     {
-        title: "Web Design",
-        desc: "Crafting modern, responsive, and high-performance websites with clean UI, smooth animations, and scalable architecture.",
+        title: "Backend Development",
+        desc: "Designing secure, scalable, and high-performance server-side systems, APIs, databases, and authentication workflows.",
         gradient: "from-purple-400 via-pink-500 to-red-500",
-        link: "/Projects",
+        link: "/Services",
     },
     {
-        title: "Graphic Design",
-        desc: "Creating visually striking graphics, branding assets, and digital visuals that communicate ideas clearly and creatively.",
+        title: "Full Stack Development",
+        desc: "Delivering complete end-to-end solutions by seamlessly integrating frontend, backend, databases, and cloud infrastructure.",
         gradient: "from-emerald-400 via-lime-400 to-yellow-400",
-        link: "/graphic-designs",
+        link: "/Services",
     },
 ];
 

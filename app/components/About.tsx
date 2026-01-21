@@ -32,9 +32,34 @@ const About: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="space-y-6"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold">
-                        About <span className="text-cyan-400">Me</span>
-                    </h1>
+                    <motion.h1
+                        className="text-4xl md:text-5xl font-bold text-left"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        About{" "}
+                        <motion.span
+                            className="font-bold"
+                            animate={{
+                                color: [
+                                    "#22d3ee", // cyan
+                                    "#6366f1", // indigo
+                                    "#8b5cf6", // violet
+                                    "#ec4899", // pink
+                                    "#22d3ee",
+                                ],
+                            }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "linear",
+                            }}
+                        >
+                            Me
+                        </motion.span>
+                    </motion.h1>
+
                     <p className="text-white/65 max-w-3xl leading-relaxed">
                         I’m <span className="text-white">Rahul Kumar</span>, a developer and
                         creative technologist who loves building meaningful digital

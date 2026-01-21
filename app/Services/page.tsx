@@ -5,11 +5,9 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     Code2,
-    Palette,
     Smartphone,
     Database,
-    Music,
-    Headphones,
+
     Cpu,
     Layout,
 } from "lucide-react";
@@ -26,67 +24,65 @@ const Services = () => {
     const router = useRouter();
 
     const services: Service[] = [
+        // 🌐 WEB DEVELOPMENT
         {
-            title: "Simple Web Design",
-            desc: "HTML & CSS only",
+            title: "Simple Web Development",
+            desc: "Static websites using HTML, CSS & modern layouts",
             price: "₹500 / Page",
             icon: Layout,
         },
         {
-            title: "Advanced Web Design",
-            desc: "React.js powered websites",
+            title: "Advanced Web Development",
+            desc: "Dynamic & interactive React.js powered websites",
             price: "₹1,200 / Page",
             icon: Code2,
         },
         {
             title: "Next.js Website Development",
-            desc: "SEO-friendly, fast & scalable Next.js websites",
+            desc: "SEO-friendly, fast & scalable production websites",
             price: "₹2,000 – ₹15,000 (based on features)",
-            icon: Cpu,
+            icon: Code2,
         },
         {
-            title: "Figma to Web",
-            desc: "Pixel-perfect frontend from Figma designs",
-            price: "₹1,000 / Page",
-            icon: Palette,
+            title: "Backend Development (Node.js)",
+            desc: "Secure, scalable REST APIs using Node.js, Express & databases",
+            price: "₹3,000 – ₹30,000",
+            icon: Code2,
         },
         {
-            title: "Firebase-Based Web Apps",
-            desc: "Auth, Firestore, real-time data & hosting",
+            title: "Firebase-Based Web Applications",
+            desc: "Authentication, Firestore, real-time data & hosting",
             price: "₹3,000 – ₹25,000",
             icon: Database,
         },
+
+        // 💻 SOFTWARE / APP DEVELOPMENT
         {
-            title: "Android UI/UX Design",
-            desc: "Mobile-first UX & UI for Android apps",
-            price: "₹1,500 / Page",
+            title: "Android App UI/UX Design",
+            desc: "Mobile-first UX & UI design for Android applications",
+            price: "₹1,500 / Screen",
             icon: Smartphone,
         },
         {
-            title: "Deployment & Hosting",
-            desc: "Vercel, Firebase, VPS & production setup",
+            title: "Custom Software Design",
+            desc: "Modern, scalable & secure software architecture design",
+            price: "₹1,500 / Module",
+            icon: Cpu,
+        },
+        {
+            title: "Full Stack Application Development",
+            desc: "End-to-end web & software app development solutions",
+            price: "₹5,000 – ₹50,000",
+            icon: Code2,
+        },
+        {
+            title: "Deployment & Hosting Setup",
+            desc: "Vercel, Firebase, VPS & production-ready deployments",
             price: "₹1,000 – ₹5,000",
             icon: Cpu,
         },
-        {
-            title: "Software Design",
-            desc: "Modern & scalable app architecture design",
-            price: "₹1,500 / Page",
-            icon: Cpu,
-        },
-        {
-            title: "Sound Design",
-            desc: "Custom sounds for apps & games",
-            price: "₹500 – ₹10,000",
-            icon: Headphones,
-        },
-        {
-            title: "Mixing & Mastering",
-            desc: "Professional audio finishing",
-            price: "₹1,000 – ₹10,000",
-            icon: Music,
-        },
     ];
+
 
     const [selectedService, setSelectedService] = useState<Service | null>(null);
 
@@ -102,15 +98,113 @@ const Services = () => {
                 </div>
 
                 <div className="max-w-7xl mx-auto">
-                    <motion.h2
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-5xl font-bold text-center mb-16"
+                        className="text-center mb-16"
                     >
-                        My <span className="text-cyan-400">Services</span>
-                    </motion.h2>
+                        <motion.h2
+                            className="text-4xl md:text-5xl font-bold text-center"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            My{" "}
+                            <motion.span
+                                className="font-bold"
+                                animate={{
+                                    color: [
+                                        "#22d3ee", // cyan
+                                        "#6366f1", // indigo
+                                        "#8b5cf6", // violet
+                                        "#ec4899", // pink
+                                        "#22d3ee",
+                                    ],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                }}
+                            >
+                                Services
+                            </motion.span>
+                        </motion.h2>
+
+
+                        {/* TWO-LAYER SINE WAVE UNDERLINE */}
+                        <div className="relative mt-4 flex justify-center">
+                            <svg
+                                width="260"
+                                height="26"
+                                viewBox="0 0 260 26"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <defs>
+                                    <linearGradient id="waveGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#22d3ee" />
+                                        <stop offset="50%" stopColor="#6366f1" />
+                                        <stop offset="100%" stopColor="#ec4899" />
+                                    </linearGradient>
+
+                                    <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#67e8f9" />
+                                        <stop offset="50%" stopColor="#a78bfa" />
+                                        <stop offset="100%" stopColor="#f472b6" />
+                                    </linearGradient>
+                                </defs>
+
+                                {/* BACK WAVE (SOFT + SLOW) */}
+                                <motion.path
+                                    d="M0 13 
+                   C 25 2, 50 24, 75 13
+                   S 125 2, 150 13
+                   S 200 24, 225 13
+                   S 250 2, 260 13"
+                                    stroke="url(#waveGradient2)"
+                                    strokeWidth="4"
+                                    strokeLinecap="round"
+                                    fill="transparent"
+                                    opacity="0.4"
+                                    animate={{
+                                        strokeDasharray: ["0 400", "400 0"],
+                                        strokeDashoffset: [0, -400],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: "linear",
+                                    }}
+                                />
+
+                                {/* FRONT WAVE (SHARP + FAST) */}
+                                <motion.path
+                                    d="M0 13 
+                   C 20 6, 40 20, 60 13
+                   S 100 6, 120 13
+                   S 160 20, 180 13
+                   S 220 6, 260 13"
+                                    stroke="url(#waveGradient1)"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    fill="transparent"
+                                    animate={{
+                                        strokeDasharray: ["0 300", "300 0"],
+                                        strokeDashoffset: [0, -300],
+                                    }}
+                                    transition={{
+                                        duration: 1.8,
+                                        repeat: Infinity,
+                                        ease: "linear",
+                                    }}
+                                />
+                            </svg>
+                        </div>
+                    </motion.div>
+
 
                     {/* GRID */}
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

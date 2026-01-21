@@ -8,7 +8,7 @@ import Image from "next/image";
 const Footer: React.FC = () => {
     const router = useRouter();
     return (
-        <footer className="relative mt-20 overflow-hidden">
+        <footer className="relative  overflow-hidden">
             {/* BACKGROUND GLOW */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute left-1/4 top-1/3 w-96 h-96 bg-cyan-500/10 blur-[160px]" />
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="space-y-2"
                 >
-                     <Image src="/darkz.png" alt="Logo" width={50} height={50} />
+                    <Image src="/darkz.png" alt="Logo" width={50} height={50} />
                     <h3 className="text-2xl font-bold tracking-wide" onClick={() => router.push("/")}>
                         Dark<span className="text-cyan-400">Z</span>
                     </h3>
@@ -54,17 +54,33 @@ const Footer: React.FC = () => {
                 >
                     <h4 className="text-lg font-semibold">Quick Links</h4>
 
-                    {["Home", "Services", "Projects", "About"].map((item) => (
+                    {[
+                        { label: "Home", type: "section", target: "home" },
+                        { label: "About", type: "section", target: "about" },
+                        { label: "Contact", type: "section", target: "contact" },
+                        { label: "Projects", type: "page", target: "/Projects" },
+                        { label: "Services", type: "page", target: "/Services" },
+                        { label: "Resume", type: "page", target: "/Resume" },
+                    ].map((item) => (
                         <motion.a
-                            key={item}
+                            key={item.label}
                             whileHover={{ x: 6 }}
-                            href={item === "Home" ? "#home" : `#${item.toLowerCase()}`}
-                            className="block text-white/60 hover:text-white transition"
+                            className="block text-white/60 hover:text-white transition cursor-pointer"
+                            onClick={() => {
+                                if (item.type === "section") {
+                                    document
+                                        .getElementById(item.target)
+                                        ?.scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                    router.push(item.target);
+                                }
+                            }}
                         >
-                            {item}
+                            {item.label}
                         </motion.a>
                     ))}
                 </motion.div>
+
 
                 {/* SOCIALS */}
                 <motion.div
