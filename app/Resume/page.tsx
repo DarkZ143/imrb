@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Resume from "../rbresume.png";
+import Resume from "../rbresume.jpg";
 import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
 import Contact from "../components/Contact";

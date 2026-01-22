@@ -17,7 +17,7 @@ const projects = [
         title: "Modulae - Modern Furniture Store",
         description:
             "An e-commerce platform for modern furniture with a sleek design, smooth animations, and seamless user experience.",
-        tech: "Next.js • Tailwind • Stripe",
+        tech: "Next.js • Tailwind • TypeScript",
         action: "visit",
         link: "https://modulae.in",
         icon: Cpu,
