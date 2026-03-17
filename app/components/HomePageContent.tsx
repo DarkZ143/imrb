@@ -50,7 +50,7 @@ const HomePageContent: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="text-xl md:text-2xl text-white/80"
           >
-            Full-Stack Developer • Cloud • AI Enthusiast
+            React Front End Developer • Cloud • AI Enthusiast
           </motion.h2>
 
           {/* DESCRIPTION */}
